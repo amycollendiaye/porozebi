@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: npm-custom
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"   # expose le port 3000 du conteneur vers ta machine
+    volumes:
+      - .:/app        # monte ton code local dans le conteneur (pratique en dev)
