@@ -1,13 +1,13 @@
-FROM node:16
-# creer un  repertoire d'application
+FROM node:22-alpine
+
+RUN apk add --no-cache bash
 
 WORKDIR /app
-# copie tt lespackages et .json
+
 COPY package*.json ./
 
-RUN npm install
-# copy tt kles sources de applications
 COPY . .
+
 EXPOSE 3000
 
 CMD ["node","server.js"]

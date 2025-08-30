@@ -1,7 +1,10 @@
-// import express from 'express'
-//  const app = express()
-//  const port=3000
-//  app.listen(port,()=>{
-//     console.log("http://localhsot:3000");
-    
-//  })
+import express from 'express'
+const portDefault = 3000
+
+const app = express();
+
+const PORT = process.env.PORT || portDefault;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
