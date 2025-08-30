@@ -1,5 +1,10 @@
-import express from 'express'
-const portDefault = 3000
+import express from 'express';
+import { PrismaClient, Prisma } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+
+const portDefault = 3000;
 
 const app = express();
 

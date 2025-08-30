@@ -1,9 +1,8 @@
 services:
   app:
+    image: node:22-alpine
     container_name: npm-custom
-    build:
-      context: .
-      dockerfile: Dockerfile
+    working_dir: /app
     ports:
       - "3000:3000"
     volumes:
@@ -11,7 +10,7 @@ services:
     depends_on:
       - db
     networks:
-      - network-app
+      - app-network
 
   db:
     image: mysql:8.0
@@ -27,10 +26,11 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     networks:
-      - network-app
+      - app-network
 
 volumes:
   db_data:
 
 networks:
-  network-app:
+  app-network:
+    driver: bridge

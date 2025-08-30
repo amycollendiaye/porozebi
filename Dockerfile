@@ -6,6 +6,9 @@ WORKDIR /app
 
 COPY package*.json ./
 
+RUN npm install --save @prisma/client 
+RUN npm install --save-dev typescript prisma
+
 COPY . .
 
 EXPOSE 3000
